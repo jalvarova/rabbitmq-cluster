@@ -1,0 +1,100 @@
+{
+  "rabbit_version": "3.10.1",
+  "rabbitmq_version": "3.10.1",
+  "product_name": "RabbitMQ",
+  "product_version": "3.10.1",
+  "users": [
+    {
+      "name": "admin",
+      "password_hash": "lLzHbCNgDc56Q66zVi1Di6quYqaeEQ8N+UIB8O/GWAC/+HSu",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": [
+        "administrator"
+      ],
+      "limits": {}
+    },
+    {
+      "name": "default_user_G9m_MqY7tQNB5uvN1vl",
+      "password_hash": "R8GtScNDlwGMLwCv8LCmjTXXb8YQthVI4FnQzJjy32kr5BMt",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": [
+        "administrator"
+      ],
+      "limits": {}
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "default_user_G9m_MqY7tQNB5uvN1vl",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "admin",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "topic_permissions": [
+    {
+      "user": "admin",
+      "vhost": "/",
+      "exchange": "",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "parameters": [],
+  "global_parameters": [
+    {
+      "name": "cluster_name",
+      "value": "rabbitmq-ready"
+    },
+    {
+      "name": "internal_cluster_id",
+      "value": "rabbitmq-cluster-id-9Ac20H_4-0orH4i8j1SMfA"
+    }
+  ],
+  "policies": [],
+  "queues": [
+    {
+      "name": "product_create_q",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "quorum"
+      }
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "dad.product.tx",
+      "vhost": "/",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "dad.product.tx",
+      "vhost": "/",
+      "destination": "product_create_q",
+      "destination_type": "queue",
+      "routing_key": "local.example.product.create",
+      "arguments": {}
+    }
+  ]
+}

@@ -43,9 +43,40 @@ $ kubectl get secret rabbitmq-ready-default-user -o jsonpath='{.data.password}' 
 $ kubectl delete -f ./rabbitmq/rabbitmq-cluster.yml -n rabbitmq-system
 ```
 
+### Rabbitmq Cluster 
+
+![backend](./img/rabbitmq-cluster.png)
+
+### Create User Rabbitmq
+
+![backend](./img/rabbitmq-user.png)
+
 ### Import Broker Definitions
 
 ![backend](./img/rabbitmq-upload.png)
+
+### Queue 
+
+![backend](./img/rabbitmq-queue.png)
+
+### Post message queue
+
+```json
+{
+    "productCode": "900",
+    "skuCode": "171155",
+    "productType": "ST",
+    "description": "CAMPANA",
+    "price": 509.0,
+    "weight": 1.0,
+    "width": 1.0,
+    "length": 1.0,
+    "height": 1.0,
+    "unitMeasurement": "UN",
+    "hierarchyCode": "L0123"
+}
+```
+![backend](./img/rabbitmq-publish-message.png)
 
 ### References
 

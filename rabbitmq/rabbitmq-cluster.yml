@@ -7,15 +7,15 @@ spec:
   resources:
     requests:
       cpu: 1000m
-      memory: 512MB
+      memory: 512Mi
     limits:
       cpu: 2000m
-      memory: 512MB
+      memory: 512Mi
   rabbitmq:
     additionalConfig: |
       cluster_partition_handling = pause_minority
       vm_memory_high_watermark_paging_ratio = 0.99
-      disk_free_limit.absolute = 2GB
+      disk_free_limit.absolute = 1GB
       vm_memory_high_watermark.relative= 1.0
   persistence:
     #storageClassName: fast
